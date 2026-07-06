@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" modified="2026-07-05T19:30:00.000Z" agent="AutoClaims" version="21.6.5">
+  <diagram id="auto-claims-arch" name="Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="AutoClaims - Architecture Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#2563EB;" vertex="1" parent="1">
+          <mxGeometry x="300" y="10" width="500" height="40"/>
+        </mxCell>
+
+        <!-- Frontend Box -->
+        <mxCell id="fe-box" value="Frontend (Next.js)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="300" height="100"/>
+        </mxCell>
+        <mxCell id="fe-dash" value="Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="110" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="fe-new" value="New Claim" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="110" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="fe-flow" value="Pipeline Viz&#xa;(React Flow)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="80" height="30"/>
+        </mxCell>
+
+        <!-- API Gateway -->
+        <mxCell id="api-box" value="API Gateway (FastAPI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#22C55E;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="230" width="300" height="60"/>
+        </mxCell>
+
+        <!-- Arrow FE -> API -->
+        <mxCell id="fe-api-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;" edge="1" parent="1" source="fe-box" target="api-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent Orchestrator Box -->
+        <mxCell id="ao-box" value="Agent Orchestrator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="800" height="120"/>
+        </mxCell>
+
+        <!-- Individual Agents -->
+        <mxCell id="agent-1" value="Intake&#xa;Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="380" width="100" height="50"/>
+        </mxCell>
+        <mxCell id="agent-2" value="Validation&#xa;Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="100" height="50"/>
+        </mxCell>
+        <mxCell id="agent-3" value="Assessment&#xa;Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="380" width="100" height="50"/>
+        </mxCell>
+        <mxCell id="agent-4" value="Review&#xa;Gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="510" y="380" width="100" height="50"/>
+        </mxCell>
+        <mxCell id="agent-5" value="Resolution&#xa;Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="380" width="100" height="50"/>
+        </mxCell>
+
+        <!-- Agent Arrows -->
+        <mxCell id="a1-a2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;dashed=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="agent-1" target="agent-2"/>
+        <mxCell id="a2-a3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="agent-2" target="agent-3"/>
+        <mxCell id="a3-a4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="agent-3" target="agent-4"/>
+        <mxCell id="a4-a5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="agent-4" target="agent-5"/>
+
+        <!-- Arrow API -> Orchestrator -->
+        <mxCell id="api-ao-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#94A3B8;strokeWidth=2;" edge="1" parent="1" source="api-box" target="ao-box"/>
+
+        <!-- Qwen Cloud Box -->
+        <mxCell id="qwen-box" value="Qwen Cloud API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#9333EA;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="530" width="300" height="100"/>
+        </mxCell>
+        <mxCell id="qwen-max" value="qwen3.7-max&#xa;(Reasoning)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#9333EA;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="550" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="qwen-plus" value="qwen3.7-plus&#xa;(Vision)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#9333EA;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="550" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="qwen-flash" value="qwen3.6-flash&#xa;(Fast)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#9333EA;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="550" width="80" height="30"/>
+        </mxCell>
+
+        <!-- Arrow Orchestrator -> Qwen -->
+        <mxCell id="ao-qwen-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9333EA;strokeWidth=2;" edge="1" parent="1" source="ao-box" target="qwen-box"/>
+
+        <!-- Database Box -->
+        <mxCell id="db-box" value="Data Layer&#xa;SQLite / PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="350" width="150" height="100"/>
+        </mxCell>
+        <mxCell id="db-claims" value="Claims" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="805" y="380" width="50" height="25"/>
+        </mxCell>
+        <mxCell id="db-policies" value="Policies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="865" y="380" width="60" height="25"/>
+        </mxCell>
+        <mxCell id="db-reviews" value="Reviews" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="805" y="410" width="60" height="25"/>
+        </mxCell>
+
+        <!-- Agents -> DB Arrows -->
+        <mxCell id="ao-db-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DB2777;strokeWidth=1;dashed=1;" edge="1" parent="1" source="ao-box" target="db-box"/>
+
+        <!-- Human Review Box -->
+        <mxCell id="hr-box" value="Human Review&#xa;Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=12;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="80" width="150" height="80"/>
+        </mxCell>
+        <mxCell id="hr-arrow" value="Flags for review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EA580C;strokeWidth=2;dashed=1;" edge="1" parent="1" source="agent-4" target="hr-box"/>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend: Solid = Data Flow, Dashed = Human Review Path" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="300" y="660" width="500" height="30"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

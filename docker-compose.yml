@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - QWEN_API_KEY=${QWEN_API_KEY}
+      - QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+      - DEBUG=true
+    volumes:
+      - backend_data:/app/autoclaims.db
+      - uploads_data:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3010:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_data:
+  uploads_data:
