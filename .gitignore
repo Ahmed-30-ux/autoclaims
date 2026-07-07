@@ -38,9 +38,6 @@ docker-compose.override.yml
 backend/uploads/*
 !backend/uploads/.gitkeep
 
-# Generated
-docs/screenshots/*.png
-
 # Server logs
 *.log
 *.err
