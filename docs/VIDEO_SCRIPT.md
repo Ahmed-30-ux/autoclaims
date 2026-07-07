@@ -1,130 +1,154 @@
 # AutoClaims — Demo Video Script (3 minutes)
 
 ## Setup
-- Open `http://localhost:3010` in fullscreen browser
-- Screen recording software ready (OBS, Windows Game Bar: Win+G, or QuickTime)
-- Clean browser — no other tabs open
+- Open `http://localhost:3010` in fullscreen browser (Chrome/Edge)
+- Screen recording: **Windows Game Bar** (Win+G) or **OBS Studio** (free)
+- Record at **1920×1080, 30fps minimum**
+- Enlarge cursor: Settings > Accessibility > Mouse pointer > Size 3
+- Close all other apps (Slack, email, etc.)
+
+> **IMPORTANT:** Before recording, run the pipeline on claim #8 (Henry Nakamura) so the video shows a completed pipeline in action.
 
 ---
 
 ## Scene 1: Dashboard Overview (0:00–0:30)
 
-**Audio:** "Welcome to AutoClaims — an autonomous AI insurance claims processing system powered by Qwen Cloud. Here's the dashboard showing our claims pipeline in action."
+**Screen:** `http://localhost:3010` — Dashboard page
 
-**Screen:** Dashboard page at `http://localhost:3010`
+**Audio:** "Welcome to AutoClaims — an autonomous AI insurance claims processing system powered by Qwen Cloud. This dashboard gives a real-time view of our claims pipeline."
 
-- Mouse-over the hero section: "AutoClaims Intelligence" banner with badges
-- Point to the 4 stat cards (Total Claims, Pending Review, Resolved, Avg Payout)
-- Scroll down to the claims table — point out different statuses:
-  - "submitted" (blue)
-  - "resolved" (green)  
-  - "pending_review" (orange)
-  - "rejected" (red)
-- Point to the Pie Chart (Claims by Type) and Pipeline Activity bars
+**Actions:**
+1. Pause 2 sec on the hero banner ("AutoClaims Intelligence" with gradient)
+2. Slowly mouse-over the 4 stat cards at top: Total Claims (10), Pending Review (1), Resolved, Avg Payout
+3. Scroll down slowly to the claims table
+4. Hover over each status badge, naming them:
+   - Claim #1 Alice — **submitted** (blue) — fresh claim waiting
+   - Claim #6 Frank — **pending_review** (orange) — needs human operator
+   - Claim #4 Daniel — **resolved** (green) — fully processed
+   - Claim #10 James — **rejected** (red) — denied by the pipeline
+5. Glance at the Pie Chart and bar chart on the right
+6. "We have 10 claims in the system across submitted, pending review, resolved, and rejected states."
 
 ---
 
-## Scene 2: New Claim with Photos (0:30–1:00)
+## Scene 2: New Claim with Photo Upload (0:30–1:00)
 
-**Audio:** "Let's submit a new claim with damage photos to show the AI vision capability."
+**Audio:** "Let's submit a new claim using the AI photo analysis feature."
 
-**Screen:** Click "New Claim" button → navigate to `http://localhost:3010/new`
-
-- Fill in the form quickly:
-  - Name: "Test User"
-  - Email: "test@email.com"
-  - Policy: "POL-2026-001"
-  - Type: "Auto"
-  - Description: "Car hit a pothole, damaged front right wheel and suspension"
-  - Incident Date: today's date
-  - Location: "San Francisco, CA"
-  - Estimated Loss: "2500"
-- **Drag & drop a damage photo** (use any car damage image from your computer) into the upload zone
-- Click "Submit Claim"
+**Actions:**
+1. Click **"New Claim"** button (top right or hero CTA)
+2. Fill the form (type fast, it's OK to pre-type the text):
+   - Claimant Name: `Sarah Chen`
+   - Email: `sarah@email.com`
+   - Phone: `+1-555-0101`
+   - Policy Number: `POL-2026-001`
+   - Claim Type: `Auto`
+   - Description: `Rear-ended at traffic light. Damage to rear bumper and trunk lid.`
+   - Incident Date: `2026-07-05`
+   - Location: `San Francisco, CA`
+   - Estimated Loss: `3200`
+3. **Photo upload:** Drag a car damage photo (or any image) into the dotted upload zone
+   - If you don't have one, take a photo of a scratched item with your phone
+   - After dropping, show the **image preview** thumbnail with a remove "×" button
+4. Click **"Submit Claim"** 
+5. "The photo will be analyzed by Qwen3.7-Plus vision API during intake."
 
 ---
 
 ## Scene 3: Pipeline Processing (1:00–1:45)
 
-**Audio:** "The claim is submitted. Now watch the AI pipeline process it automatically."
+**Audio:** "Now watch the five AI agents process this claim."
 
-**Screen:** After submission, you're redirected to the claim detail page
-
-- Click "Run Pipeline" button
-- **Zoom in on the React Flow pipeline visualization** at the top
-- Watch as each agent activates sequentially (the animation shows):
-  1. **Intake** → extracts claim data (blue highlight + pulsing dot)
-  2. **Validation** → verifies policy (green)
-  3. **Assessment** → estimates payout ($2,000) 
-  4. **Review Gate** → auto-approves (low risk)
-  5. **Resolution** → generates approval letter
-- Point to the **confidence bars** in each completed node
-- Point to the **pipeline progress bar** filling up
-
-**Audio:** "Five AI agents processed this claim in seconds — Intake used Qwen3.7-Plus vision to analyze the photo, Validation and Assessment used Qwen3.7-Max for reasoning, and Resolution used Qwen3.6-Flash for speed."
+**Actions (on claim detail page after redirect):**
+1. Click **"Run Pipeline"** button
+2. **Zoom into the horizontal pipeline visualization** at the top of the page
+3. Speak as each agent activates (the animation shows pulsing blue dots on the active node):
+   - **Intake Agent** (Qwen3.7-Plus): "Extracting structured data from the submission and analyzing the damage photo — it identifies this as a rear-end collision with moderate bumper damage."
+   - **Validation Agent** (Qwen3.7-Max): "Checking policy POL-2026-001 — it's active with $50,000 auto coverage. Claimant Sarah Chen is listed as a covered driver. Validated."
+   - **Assessment Agent** (Qwen3.7-Max): "Estimating repair costs based on damage description — $2,800 for bumper replacement and trunk repair. Fraud risk is low at 12%."
+   - **Review Gate** (Qwen3.7-Max): "Low fraud risk and under $5,000 threshold — auto-approving without human review."
+   - **Resolution Agent** (Qwen3.6-Flash): "Generating the approval letter and calculating the net payout — $2,300 after the $500 deductible."
+4. Point to each node's **confidence bar** filling up as they complete
+5. Point to the **pipeline progress bar** at the bottom reaching 100%
+6. "The entire pipeline completed in seconds. Each agent uses a specialized Qwen model."
 
 ---
 
-## Scene 4: Results & Agent Data (1:45–2:15)
+## Scene 4: Results & Photo Analysis (1:45–2:20)
 
-**Audio:** "Here are the results from each agent."
+**Audio:** "Here's what each agent found, including the AI vision results."
 
-**Screen:** Scroll down to "Agent Results" section
-
-- Point to each ResultCard:
-  - **Intake:** extracted data (claimant name, type, date, location, confidence 95%)
-  - **Validation:** policy valid, coverage active
-  - **Assessment:** $2,000 estimated payout, moderate damage severity
-  - **Review Gate:** auto-approved, low fraud risk
-  - **Resolution:** approved, net payout: $1,500 (after deductible)
-- Scroll back up to the status panel showing "Resolved" with payout amount
+**Actions:**
+1. Scroll down to **"Agent Results"** section
+2. Point to each result card:
+   - **Intake Analysis Card** — Show the photo analysis result:
+     - Damage Type: Collision / Rear-end
+     - Severity: Moderate
+     - Est. Repair Cost: $2,800–$3,500
+     - Fraud Indicators: None detected
+   - **Validation** — Policy valid, coverage active, confidence 96%
+   - **Assessment** — $2,800 est. payout, moderate severity, low fraud
+   - **Review Gate** — Auto-approved (no human review needed)
+   - **Resolution** — Approved, net payout: $2,300
+3. Scroll back up to the status banner showing "Resolved" with payout
+4. "This is a fully resolved claim — approved and ready for payment."
 
 ---
 
-## Scene 5: Human Review Flow (2:15–2:45)
+## Scene 5: Rejected Claim & Human Review (2:20–2:45)
 
-**Audio:** "For high-value claims, the system flags them for human review."
+**Audio:** "Not all claims get approved. Let's look at a rejected one and the human review flow."
 
-**Screen:** Navigate to `http://localhost:3010/reviews`
-
-- Point to the Frank Wilson claim (liability, $25,000 — flagged for review)
-- Click "Review" or show the approve/reject UI
-- Explain: "Claims over $5,000 or with medium-to-high fraud risk are sent to a human operator who can approve, reject, or add notes. This fulfills the 'human-in-the-loop' requirement for Track 4: Autopilot Agent."
-
-**Screen:** Navigate back to dashboard, show the full table with all 9 claims in different states
+**Actions:**
+1. Navigate to dashboard (`/`)
+2. Find **Claim #10 — James Brown** in the table, status: **rejected** (red)
+3. Click on claim #10 to open detail page
+4. Scroll to Agent Results:
+   - Intake: **Flags: delayed reporting, high value, no police report**
+   - Assessment: **Fraud risk: high (95% confidence)**, multiple fraud flags
+   - Resolution: **Rejected — fraudulent pattern detected**
+5. "The pipeline detected red flags: $50,000 watch claimed 3 weeks after travel, no police report, no proof of purchase — and the policy only covers $500 per item."
+6. Navigate to **Reviews** (`/reviews`)
+7. Point to **Frank Wilson** (claim #6) — pending review
+8. "For claims like this $25,000 liability case flagged by the Review Gate, a human operator reviews and makes the final decision — the human-in-the-loop safeguard."
 
 ---
 
 ## Scene 6: Architecture & Wrap (2:45–3:00)
 
-**Audio:** "The architecture uses FastAPI as the API gateway, an agent orchestrator chains 5 specialized AI agents, and the entire system is deployed on Alibaba Cloud infrastructure with Qwen Cloud API for inference."
+**Audio:** "Here's the system architecture and how it all fits together."
 
-**Screen:** Show the architecture diagram (`docs/architecture.svg` — open in browser)
-
-- Briefly point to: Frontend → API → Orchestrator → Agents → Qwen Cloud
-- Show the repo on GitHub
-
-**Audio:** "Built for the Qwen Cloud Global AI Hackathon — Track 4: Autopilot Agent. Full source code, deployment scripts, and documentation available on GitHub. Thanks for watching!"
+**Actions:**
+1. Open `docs/architecture.svg` in the browser (drag the file into Chrome)
+2. Mouse-over each layer as you describe:
+   - **Frontend** (Next.js) — Dashboard, claim form, pipeline visualization, reviews
+   - **API Gateway** (FastAPI) — REST endpoints
+   - **Agent Orchestrator** — Chains 5 agents with state persistence
+   - **AI Agents** — Intake → Validation → Assessment → Review Gate → Resolution
+   - **Qwen Cloud** — 3 models: Plus (vision), Max (reasoning), Flash (speed)
+   - **Data Layer** — SQLite database with claims, policies, reviews
+3. Switch to GitHub: `https://github.com/Ahmed-30-ux/autoclaims`
+4. "Full source code, Docker deployment scripts, and documentation are on GitHub. Built for the Qwen Cloud Global AI Hackathon — Track 4: Autopilot Agent. Thanks for watching!"
 
 ---
 
-## Tips for Recording
+## Key Shots to Capture (record as separate clips)
 
-1. **Clean audio** — use a USB mic or good headset, record in a quiet room
-2. **1920x1080** resolution at 30fps minimum
-3. **Cursor visible** — enlarge cursor in Windows settings (Settings > Accessibility > Mouse pointer)
-4. **No background apps** — close Slack, email, notifications
-5. **Smooth mouse movements** — don't rush, let each scene breathe for 2-3 seconds
-6. **Background music** — add low-volume royalty-free music (YouTube Audio Library)
-7. **Captions** — add subtitles for accessibility (CapCut, DaVinci Resolve, or VEED.io)
+1. Dashboard with all 10 claims visible
+2. Claim form with photo being dragged in
+3. Pipeline animation running (record 10-15 sec of the processing)
+4. Completed pipeline with all green nodes
+5. Photo analysis result card
+6. Rejected claim (James #10) with fraud flags
+7. Human review dashboard
+8. Architecture diagram
+9. GitHub repo page
 
-## Example Screenshots to Include (record separately)
+## Recording Tips
 
-1. Full dashboard page
-2. Claim form with photo upload
-3. Pipeline visualization mid-processing (agents 3/5 completed)
-4. Complete pipeline with all green nodes
-5. Agent Results cards
-6. Human Review dashboard
-7. Architecture diagram
-8. GitHub repo page
+1. **Audio:** Use a headset mic, record in a quiet room. Speak clearly and at a steady pace.
+2. **Mouse:** Move smoothly — don't rush. Pause 2-3 seconds on each element.
+3. **Background music:** Add low-volume royalty-free music (YouTube Audio Library has good options).
+4. **Captions:** Add subtitles using CapCut, DaVinci Resolve, or VEED.io for accessibility.
+5. **No watermark:** Use OBS or Game Bar — no free version watermarks.
+6. **Export:** H.264 MP4, 1080p, ~50-100 MB max.

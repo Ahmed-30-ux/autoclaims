@@ -157,6 +157,26 @@ demo_claims = [
         "status": "submitted",
         "current_agent": "intake",
     },
+    # Fully rejected claim
+    {
+        "claimant_name": "James Brown",
+        "claimant_email": "james@email.com",
+        "claimant_phone": "+1-555-0010",
+        "policy_number": "POL-2026-004",
+        "claim_type": "travel",
+        "description": "Claim for lost Rolex watch valued at $50,000 during domestic flight. No proof of purchase or police report provided. Incident reported 3 weeks after travel ended.",
+        "incident_date": "2026-06-01",
+        "location": "Los Angeles, CA",
+        "estimated_loss": 50000.0,
+        "image_paths": "[]",
+        "status": "rejected",
+        "current_agent": "completed",
+        "intake_data": json.dumps({"claimant_name": "James Brown", "claim_type": "travel", "confidence": 0.72, "incident_date": "2026-06-01", "location": "Los Angeles, CA", "flags": "delayed_reporting, high_value, no_police_report"}),
+        "validation_data": json.dumps({"policy_valid": True, "coverage": "limited", "confidence": 0.65, "policy_type": "travel", "max_item_coverage": 500, "warnings": "Single-item value far exceeds policy limit of $500"}),
+        "assessment_data": json.dumps({"estimated_payout": 0.0, "damage_severity": "n/a", "fraud_risk": "high", "confidence": 0.95, "fraud_flags": "Delayed reporting (21 days), no police report, no proof of purchase, item value 100x policy limit, inconsistent travel dates"}),
+        "review_gate_data": json.dumps({"needs_human_review": True, "reason": "High fraud risk + delayed reporting + excessive claim amount", "auto_recommendation": "reject", "confidence": 0.93}),
+        "resolution_data": json.dumps({"outcome": "rejected", "payout_amount": 0.0, "deductible_applied": 0.0, "net_payout": 0.0, "summary": "Claim rejected: fraudulent pattern detected — delayed reporting, no police report, no proof of purchase, and claim amount exceeds policy limits by 100x."}),
+    },
 ]
 
 for c in demo_claims:
